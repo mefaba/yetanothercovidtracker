@@ -4,7 +4,7 @@ import CountUp from 'react-countup';
 
 const CardsUnit = ({ data }) => {
 	const {TotalConfirmed, TotalRecovered, TotalDeaths } = data;
-    const recordedDate = data.Date
+    const recordedDate = data.Date || Date.now()
     console.log(data)
     if(TotalConfirmed === undefined){
         return <div>Loading</div>
@@ -17,7 +17,7 @@ const CardsUnit = ({ data }) => {
 					<div className="font-bold text-xl mb-2">
                        <CountUp start={0} end={TotalConfirmed} duration={2.75} />
                     </div>
-					<div className="text-l mb-2">{recordedDate}</div>
+					<div className="text-l mb-2">{new Date(recordedDate).toDateString()}</div>
 					<p className="text-gray-700 text-base">Number of active cases of COVID-19.</p>
 				</div>
 			</div>
@@ -26,7 +26,7 @@ const CardsUnit = ({ data }) => {
 					<div className="text-xl mb-2">Recovered</div>
 					<div className="font-bold text-xl mb-2">
                     <CountUp start={0} end={TotalRecovered} duration={2.75} /></div>
-					<div className="text-l mb-2">{recordedDate}</div>
+					<div className="text-l mb-2">{new Date(recordedDate).toDateString()}</div>
 					<p className="text-gray-700 text-base">Number of active cases of COVID-19.</p>
 				</div>
 			</div>
@@ -35,7 +35,7 @@ const CardsUnit = ({ data }) => {
 					<div className="text-xl mb-2">Deaths</div>
 					<div className="font-bold text-xl mb-2">
                     <CountUp start={0} end={TotalDeaths} duration={2.75} /></div>
-					<div className="text-l mb-2">{recordedDate}</div>
+					<div className="text-l mb-2">{new Date(recordedDate).toDateString()}</div>
 					<p className="text-gray-700 text-base">Number of active cases of COVID-19.</p>
 				</div>
 			</div>
