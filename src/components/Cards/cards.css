@@ -1,0 +1,16 @@
+.card-container {
+	display: flex;
+	justify-content: center;
+}
+
+.infected {
+	border-bottom: 10px solid rgba(0, 0, 255, 0.705);
+}
+
+.recovered {
+	border-bottom: 10px solid rgba(0, 255, 0, 0.767);
+}
+
+.deaths {
+	border-bottom: 10px solid rgb(255, 0, 0);
+}

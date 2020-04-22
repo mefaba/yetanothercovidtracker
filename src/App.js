@@ -1,26 +1,49 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import CardsUnit from './components/Cards/CardsUnit';
+import { fetchRawdata } from './api/CovidApi';
+import CountrySelector from './components/CountrySelector/CountrySelector';
+import "./App.css"
+import ChartUnit from './components/Chart/ChartUnit';
+import HeaderUnit from './components/Header/HeaderUnit';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component {
+  state = {
+    rawdata: {},
+    countryData: {},
+    country: 'Belgium',
+  }
+
+  async componentDidMount() {
+    const rawdata = await fetchRawdata()
+    /* console.log("componentDidMount: ", rawdata)
+    console.log(rawdata.data.Global) */
+    this.setState({ 
+      rawdata: rawdata.data,
+      countryData: rawdata.data.Global
+    });
+  }
+
+  handleCountryChange = (country) => {
+    if(country==="Global"){
+      return this.setState({countryData:this.state.rawdata.Global})
+    }
+    const countryData = this.state.rawdata.Countries.find(x=>{
+      return x.Country===country
+    })
+    this.setState({countryData:countryData})
+    /* const data = await fetchData(country); */
+
+    //this.setState({ data, country: country });
+  }
+  render() {
+    return (
+      <div className="App">
+          <HeaderUnit/>
+          <CardsUnit data={this.state.countryData}/>
+          <CountrySelector handleCountryChange={this.handleCountryChange}/>
+          <ChartUnit data={this.state.countryData}/>
+      </div>
+    )
+  }
 }
 
-export default App;
