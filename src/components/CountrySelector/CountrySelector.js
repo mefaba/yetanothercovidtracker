@@ -7,7 +7,7 @@ const CountrySelector = ({handleCountryChange}) => {
     useEffect(() => {
         const fetchAPI = async() =>{
             const apicountryList = await fetchCountries()
-            setCountrylist(apicountryList)
+            setCountrylist(apicountryList.sort())
         }
         fetchAPI()
 
