@@ -4,7 +4,7 @@ import axios from "axios";
 export const fetchRawdata = async (country) => {
 	try {
 		const rawdata = await axios.get("https://api.covid19api.com/summary");
-		console.log("covidapi>fetchdata", rawdata.data);
+		/* console.log("covidapi>fetchdata", rawdata.data); */
 
 		return rawdata;
 	} catch (error) {
@@ -28,7 +28,7 @@ export const fetchDailyData = async (countryname="turkey") => {
 
     try {
       const {data}= await axios.get(`https://api.covid19api.com/dayone/country/${countryname}`);
-      console.log("fetchDailyData Country Data",data)
+      /* console.log("fetchDailyData Country Data",data) */
 
       const confirmedbyDays = data.map(x=>{
           return x.Confirmed

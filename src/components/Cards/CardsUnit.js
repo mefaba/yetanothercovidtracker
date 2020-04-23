@@ -5,7 +5,7 @@ import CountUp from 'react-countup';
 const CardsUnit = ({ data }) => {
 	const {TotalConfirmed, TotalRecovered, TotalDeaths } = data;
     const recordedDate = data.Date || Date.now()
-    console.log(data)
+    /* console.log(data) */
     if(TotalConfirmed === undefined){
         return <div>Loading</div>
     }

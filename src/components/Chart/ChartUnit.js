@@ -32,7 +32,7 @@ const ChartUnit = ({ data, countryname }) => {
 		}
 	}, [countryname]);
 
-	console.log(dailydata);
+	/* console.log(dailydata); */
 
 	return (
 		<>
