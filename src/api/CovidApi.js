@@ -23,3 +23,28 @@ export const fetchCountries = async () => {
 		return console.log("fetchCountries gave error", error);
 	}
 };
+
+export const fetchDailyData = async (countryname="turkey") => {
+
+    try {
+      const {data}= await axios.get(`https://api.covid19api.com/dayone/country/${countryname}`);
+      console.log("fetchDailyData Country Data",data)
+
+      const confirmedbyDays = data.map(x=>{
+          return x.Confirmed
+      })
+      const deathsbyDays = data.map(x=>{
+        return x.Deaths
+      })
+
+      const daysbyDays = data.map(x=>{
+          return x.Date
+      })
+
+      return [confirmedbyDays, deathsbyDays, daysbyDays]
+
+    } catch (error) {
+      return error;
+    }
+  };
+//https://api.covid19api.com/dayone/country/south-africa

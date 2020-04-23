@@ -10,7 +10,7 @@ export default class App extends React.Component {
   state = {
     rawdata: {},
     countryData: {},
-    country: 'Belgium',
+    country: '',
   }
 
   async componentDidMount() {
@@ -24,6 +24,9 @@ export default class App extends React.Component {
   }
 
   handleCountryChange = (country) => {
+    this.setState({
+      country: country
+    })
     if(country==="Global"){
       return this.setState({countryData:this.state.rawdata.Global})
     }
@@ -41,7 +44,7 @@ export default class App extends React.Component {
           <HeaderUnit/>
           <CardsUnit data={this.state.countryData}/>
           <CountrySelector handleCountryChange={this.handleCountryChange}/>
-          <ChartUnit data={this.state.countryData}/>
+          <ChartUnit data={this.state.countryData} countryname={this.state.country}/>
       </div>
     )
   }
