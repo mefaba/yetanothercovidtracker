@@ -37,9 +37,10 @@ export const fetchDailyData = async (countryname="turkey") => {
         return x.Deaths
       })
 
-      const daysbyDays = data.map(x=>{
+      let daysbyDays = data.map(x=>{
           return x.Date
       })
+      daysbyDays = daysbyDays.map(y=>{return new Date(y).toDateString()})
 
       return [confirmedbyDays, deathsbyDays, daysbyDays]
 
