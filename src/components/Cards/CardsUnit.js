@@ -10,7 +10,7 @@ const CardsUnit = ({ data }) => {
         return <div>Loading</div>
     }
 	return (
-		<div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3  gap-2 mx-20 mt-10">
+		<div className="card-container grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3  gap-2 mx-20 mt-10">
 			<div className="infected max-w-md rounded overflow-hidden shadow-lg">
 				<div className="px-6 py-4">
 					<div className="text-xl mb-2">Infected</div>
