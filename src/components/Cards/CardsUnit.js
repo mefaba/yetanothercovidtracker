@@ -27,7 +27,7 @@ const CardsUnit = ({ data }) => {
 					<div className="font-bold text-xl mb-2">
                     <CountUp start={0} end={TotalRecovered} duration={2.75} /></div>
 					<div className="text-l mb-2">{new Date(recordedDate).toDateString()}</div>
-					<p className="text-gray-700 text-base">Number of active cases of COVID-19.</p>
+					<p className="text-gray-700 text-base">Number of recoviries from COVID-19.</p>
 				</div>
 			</div>
 			<div className="deaths max-w-md rounded overflow-hidden shadow-lg">
@@ -36,7 +36,7 @@ const CardsUnit = ({ data }) => {
 					<div className="font-bold text-xl mb-2">
                     <CountUp start={0} end={TotalDeaths} duration={2.75} /></div>
 					<div className="text-l mb-2">{new Date(recordedDate).toDateString()}</div>
-					<p className="text-gray-700 text-base">Number of active cases of COVID-19.</p>
+					<p className="text-gray-700 text-base">Number of deaths caused by COVID-19.</p>
 				</div>
 			</div>
 		</div>
